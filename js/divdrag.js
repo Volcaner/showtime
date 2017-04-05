@@ -71,7 +71,7 @@
 			// stop move
 			self.bIsMoveFlag = false;
 
-			$("#" + self.objCache.targetDivId + ">#moveMe").addClass("cursor", "url('images/clothhand.ico'),auto");
+			$("#" + self.objCache.targetDivId + ">#moveMe").css("cursor", "url('images/clothhand.ico'),auto");
 			$("#" + self.objCache.targetDivId).css("z-index", "1");
 		};
 
