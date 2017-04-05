@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<mate charset="utf-8">
+	<title>show time</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div id="app" class="app">
+		<div id="tabelControlApp" class="tabelControlApp"></div>
+	</div>
+</body>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/divdrag.js"></script>
+<script type="text/javascript" src="js/mousecoords.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var DivDrag = new $.DivDrag();
+		DivDrag.init({
+			targetDivId: "tabelControlApp"
+		});
+	});
+</script>
+</html>

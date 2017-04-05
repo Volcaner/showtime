@@ -1,0 +1,23 @@
+*{
+	margin: 0 0;
+	padding: 0 0;
+}
+.app{
+	/*position*/
+	position: relative;
+	width: 100%;
+	height: auto;
+
+	/*style*/
+}
+.tabelControlApp{
+	/*position*/
+	position: absolute;
+	width: 100px;
+	height: 100px;
+
+	/*style*/
+	top: 0px;
+	left: 0px;
+	background: #aaa;
+}
