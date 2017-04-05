@@ -18,6 +18,12 @@
 			// cache
 			self.objCache = obj;
 
+			// init position
+			
+
+			// add moveMe
+			$("#" + self.objCache.targetDivId).append('<div id="moveMe" class="moveMe">move</div>');
+
 			$("#" + self.objCache.targetDivId).bind({
 				mousedown: function(ev){
 					self.mousedown(ev);
@@ -30,11 +36,11 @@
 				},
 				mouseover: function(){
 					self.mouseover();
+				},
+				mouseout: function(){
+					self.mouseout();
 				}
 			});
-
-			
-
 		};
 
 		this.mousemove = function(ev){
@@ -43,32 +49,39 @@
 				var targetY = MouseCoords.getMouseCoords(ev).y - self.distance.distanceY;
 				$("#" + self.objCache.targetDivId).css("left", targetX);
 				$("#" + self.objCache.targetDivId).css("top", targetY);
+
+				// set position to window's localstorage
+				window.localStorage.setItem(self.objCache.targetDivId + "targetX", targetX);
+				window.localStorage.setItem(self.objCache.targetDivId + "targetY", targetY);
 			}
 		};
 
 		this.mousedown = function(ev){
-			$("." + self.objCache.targetDivId).css("cursor", "url('images/stonehand.ico'),auto");
+			// begin move
 			self.bIsMoveFlag = true;
 
+			$("#" + self.objCache.targetDivId + ">#moveMe").css("cursor", "url('images/stonehand.ico'),auto");
+			$("#" + self.objCache.targetDivId).css("z-index", "99");
+			
 			self.distance.distanceX = MouseCoords.getMouseCoords(ev).x - $("#" + self.objCache.targetDivId).position().left;
 			self.distance.distanceY = MouseCoords.getMouseCoords(ev).y - $("#" + self.objCache.targetDivId).position().top;
-
-			if($("#" + self.objCache.targetDivId).setCapture){ 
-				$("#" + self.objCache.targetDivId).setCapture(); 
-			}
 		};
 
 		this.mouseup = function(ev){
-			$("." + self.objCache.targetDivId).css("cursor", "url('images/clothhand.ico'),auto");
+			// stop move
 			self.bIsMoveFlag = false;
 
-			if($("#" + self.objCache.targetDivId).releaseCapture){ 
-				$("#" + self.objCache.targetDivId).releaseCapture(); 
-			}
+			$("#" + self.objCache.targetDivId + ">#moveMe").addClass("cursor", "url('images/clothhand.ico'),auto");
+			$("#" + self.objCache.targetDivId).css("z-index", "1");
 		};
 
 		this.mouseover = function(){
-			$("." + self.objCache.targetDivId).css("cursor", "url('images/clothhand.ico'),auto");
+			$("#" + self.objCache.targetDivId + ">#moveMe").css("cursor", "url('images/clothhand.ico'),auto");
+			$("#" + self.objCache.targetDivId + ">#moveMe").addClass("visibled");
+		};
+
+		this.mouseout = function(){
+			$("#" + self.objCache.targetDivId + ">#moveMe").removeClass("visibled");
 		};
 	};
 })(jQuery);

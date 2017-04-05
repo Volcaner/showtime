@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
- 	<mate charset="utf-8">
+ 	<meta charset="utf-8">
 	<title>show time</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<div id="app" class="app">
-		<div id="tabelControlApp" class="tabelControlApp"></div>
-		<div id="moveApp" class="moveApp"></div>
+		<div id="tabelControlApp" class="targetApp">
+			<a href="https://volcaner.github.io/tableControl/"><img class="img" src="images/img_tabelcontrol.png"></a>
+		</div>
+		<div id="wecourse" class="targetApp">
+			<a href="http://volcaner.github.io/0_github/"><img class="img" src="images/img_wecourse.png"></a>
+		</div>
+		<div id="tinyHeard" class="targetApp">
+			<a href="https://volcaner.github.io/tinyHeard/"><img class="img" src="images/img_tinyheard.png"></a>
+		</div>
+		<div id="countDown" class="targetApp">
+			<a href="https://volcaner.github.io/countDown/"><img class="img" src="images/img_countdown.png"></a>
+		</div>
 	</div>
 </body>
 
@@ -19,6 +29,23 @@
 	$(document).ready(function(){
 		$("#app>div").each(function(){
 			// console.log($(this).get(0).id);
+
+			if($(this).find("img")){
+				var imgW = $(this).find("img").width();
+				var imgH = $(this).find("img").height();
+
+				if(imgW < imgH){
+					$(this).find("img").height("350px");
+				}
+				else if(imgW >= imgH){
+					$(this).find("img").width("350px");
+				}
+			}
+
+			// get position from window's localstorage
+			$("#" + $(this).get(0).id).css("left", window.localStorage.getItem($(this).get(0).id + "targetX") + "px");
+			$("#" + $(this).get(0).id).css("top", window.localStorage.getItem($(this).get(0).id + "targetY") + "px");
+
 			var DivDrag = new $.DivDrag();
 			DivDrag.init({
 				targetDivId: $(this).get(0).id
