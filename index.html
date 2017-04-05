@@ -8,6 +8,7 @@
 <body>
 	<div id="app" class="app">
 		<div id="tabelControlApp" class="tabelControlApp"></div>
+		<div id="moveApp" class="moveApp"></div>
 	</div>
 </body>
 
@@ -16,9 +17,12 @@
 <script type="text/javascript" src="js/mousecoords.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		var DivDrag = new $.DivDrag();
-		DivDrag.init({
-			targetDivId: "tabelControlApp"
+		$("#app>div").each(function(){
+			// console.log($(this).get(0).id);
+			var DivDrag = new $.DivDrag();
+			DivDrag.init({
+				targetDivId: $(this).get(0).id
+			});
 		});
 	});
 </script>
