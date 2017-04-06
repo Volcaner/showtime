@@ -28,6 +28,9 @@
 	height: auto;
 
 	/*style*/
+
+	border: 2px solid #99CCCC;
+	border-radius: 5px 5px;
 }
 .moveMe{
 	/*position*/
