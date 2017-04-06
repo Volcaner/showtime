@@ -18,9 +18,6 @@
 			// cache
 			self.objCache = obj;
 
-			// init position
-			
-
 			// add moveMe
 			$("#" + self.objCache.targetDivId).append('<div id="moveMe" class="moveMe">move</div>');
 
