@@ -13,5 +13,5 @@
 		};
 	};
 })(jQuery);
-console.log(new $.MouseCoords());
+// console.log(new $.MouseCoords());
 window.MouseCoords = new $.MouseCoords();
