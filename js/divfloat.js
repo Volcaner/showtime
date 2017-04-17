@@ -1,4 +1,4 @@
-(funtion($){
+(function($){
 	$.DivFloat = function(){
 		var self = this;
 		

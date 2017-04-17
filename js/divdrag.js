@@ -2,6 +2,8 @@
 	$.DivDrag = function(){
 		var self = this;
 
+		// var MouseCoords = new $.MouseCoords();
+
 		// obj cache
 		this.objCache = undefined;
 
